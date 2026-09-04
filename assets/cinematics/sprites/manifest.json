@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-09-04T18:07:31.728Z",
+  "frameCount": 120,
+  "frameWidth": 1024,
+  "frameHeight": 576,
+  "framesPerSheet": 10,
+  "sheetCount": 12,
+  "sequences": [
+    "scene-01-hero",
+    "scene-02-container",
+    "scene-03-loading",
+    "scene-04-vgm",
+    "scene-05-port",
+    "scene-06-destination"
+  ]
+}

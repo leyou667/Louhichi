@@ -1,0 +1,12 @@
+{
+  "name": "louhichi-international",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Prototype premium Louhichi International — Import & Export",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "check": "node --check app.js && node --check server.mjs"
+  }
+}
+

@@ -1,0 +1,10 @@
+node_modules/
+.next/
+dist/
+.env*
+!.env.example
+.pnpm-*/
+*.log
+assets/cinematics/sources/*.mp4
+assets/cinematics/frames/
+work/
