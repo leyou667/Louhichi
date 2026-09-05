@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "clips": [
+    {
+      "id": "reveal-wide",
+      "index": 5,
+      "jobId": "93473b61-16b6-4920-90cd-c5f14e345495",
+      "duration": 8,
+      "fps": 12,
+      "frameCount": 96,
+      "frameWidth": 1024,
+      "frameHeight": 576,
+      "framesPerSheet": 6,
+      "sheetCount": 16,
+      "sheets": [
+        "scene-05/sprite-00.webp",
+        "scene-05/sprite-01.webp",
+        "scene-05/sprite-02.webp",
+        "scene-05/sprite-03.webp",
+        "scene-05/sprite-04.webp",
+        "scene-05/sprite-05.webp",
+        "scene-05/sprite-06.webp",
+        "scene-05/sprite-07.webp",
+        "scene-05/sprite-08.webp",
+        "scene-05/sprite-09.webp",
+        "scene-05/sprite-10.webp",
+        "scene-05/sprite-11.webp",
+        "scene-05/sprite-12.webp",
+        "scene-05/sprite-13.webp",
+        "scene-05/sprite-14.webp",
+        "scene-05/sprite-15.webp"
+      ],
+      "poster": "scene-05/poster.webp",
+      "originalUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3IkYipduqSCAlu7OSYALbLpnmqf/hf_20260905_011349_93473b61-16b6-4920-90cd-c5f14e345495.mp4",
+      "motionDifferencesPerSecond": [
+        51.853,
+        45.301,
+        48.697,
+        43.906,
+        46.893,
+        37.103,
+        26.246
+      ]
+    },
+    {
+      "id": "departure-wide",
+      "index": 6,
+      "jobId": "e091597d-2e02-4940-ab6b-7c3f428e51bd",
+      "duration": 8,
+      "fps": 12,
+      "frameCount": 96,
+      "frameWidth": 1024,
+      "frameHeight": 576,
+      "framesPerSheet": 6,
+      "sheetCount": 16,
+      "sheets": [
+        "scene-06/sprite-00.webp",
+        "scene-06/sprite-01.webp",
+        "scene-06/sprite-02.webp",
+        "scene-06/sprite-03.webp",
+        "scene-06/sprite-04.webp",
+        "scene-06/sprite-05.webp",
+        "scene-06/sprite-06.webp",
+        "scene-06/sprite-07.webp",
+        "scene-06/sprite-08.webp",
+        "scene-06/sprite-09.webp",
+        "scene-06/sprite-10.webp",
+        "scene-06/sprite-11.webp",
+        "scene-06/sprite-12.webp",
+        "scene-06/sprite-13.webp",
+        "scene-06/sprite-14.webp",
+        "scene-06/sprite-15.webp"
+      ],
+      "poster": "scene-06/poster.webp",
+      "originalUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3IkYipduqSCAlu7OSYALbLpnmqf/hf_20260905_011349_e091597d-2e02-4940-ab6b-7c3f428e51bd.mp4",
+      "motionDifferencesPerSecond": [
+        20.006,
+        15.963,
+        22.323,
+        28.167,
+        39.253,
+        33.69,
+        23.087
+      ]
+    }
+  ]
+}

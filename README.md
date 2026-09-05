@@ -1,37 +1,65 @@
 # Louhichi International
 
-Prototype fonctionnel du site Louhichi International — Import & Export.
+Site mobile-first de Louhichi International — Import & Export.
+Version publique : https://leyou667.github.io/Louhichi/
 
-## Lancer localement
+## Exécution
 
-```powershell
-node server.mjs
-```
+Projet statique sans dépendance ni étape de compilation.
+Node.js sert uniquement à la prévisualisation et aux vérifications.
 
-Puis ouvrir `http://127.0.0.1:3000`.
+- Développement : npm run dev
+- Vérification syntaxique : npm run check
+- Ouvrir http://127.0.0.1:3000/
 
-## État actuel
+## Refonte du 5 septembre 2026
 
-- identité visuelle basée sur `#111111`, `#0B1F33`, `#F5F3EF` et `#C8A96B` ;
-- page publique responsive ;
-- 720 images d’animation issues de six cinématiques Higgsfield, réparties sur les sept étapes ;
-- 120 positions par séquence, regroupées en 72 planches WebP optimisées puis affichées sur canvas selon la position exacte du scroll ;
-- aucune vidéo lancée ou téléchargée par le navigateur lors de la consultation du site ;
-- préchargement progressif des planches pour préserver la fluidité et réduire fortement le nombre de requêtes réseau ;
-- tracker de démonstration (`LOU-26091`) ;
-- formulaire de devis multi-étapes sans envoi de données ;
-- aperçu de l’espace client ;
-- aperçu interactif de l’administration et de ses échéances ;
-- présentation de marque avec le logo officiel fourni ;
-- section destinations sans publication de pays non validés ;
-- contenus et destinations définitifs encore à valider ;
-- logo officiel transparent/vectoriel encore à fournir ;
-- séquences d’images optimisées pesant environ 13 Mo au total.
+Quatre ensembles : accueil cinématographique, services, espace client unifié, devis/contact.
+Palette officielle et monogramme JPG fourni préservés ; icônes vectorielles homogènes.
 
-La direction et le plan de production se trouvent dans `docs/cinematic-direction.md`. Le fichier source actuellement disponible pour le logo est `assets/louhichi-logo-official.jpg`.
+### Cinématique au défilement
 
-L’architecture des futures connexions est documentée dans `docs/integration-plan.md`. `.env.example` contient uniquement les noms des variables attendues, sans aucun secret.
+- Un canvas plein écran, au début du site, animé uniquement par la position du scroll.
+- Sept chapitres narratifs et sept prises Higgsfield : cinq verticales, deux horizontales.
+- 96 images exportées par prise, en planches WebP de six images.
+- Montage : découverte/chargement, camion/port, levage court, dépose corrigée, traversée.
+- La première prise de grue est écartée en entier. Le levage utilise le plan
+  de chargement inversé, puis une nouvelle prise assure la dépose horizontale.
+- Versions verticales natives 576 × 1024 ; plans larges 1024 × 576.
+- Les prises verticales intermédiaires restent intégralement visibles sur ordinateur :
+  arrière-plan atmosphérique issu de la même image, sans bandes noires.
+- Préchargement des images voisines ; trois planches décodées au maximum, soit
+  40,5 Mio de pixels de planches (hors canvas, moteur du navigateur et cache réseau).
+- Premier visuel prioritaire ; conservation du dernier rendu si une image manque.
+- Version statique avec réduction des animations, économie de données ou appareil
+  annonçant au plus 2 Go de mémoire ; bouton de bascule et liens de passage direct.
+- Aucun élément video, aucune lecture automatique et aucun MP4 chargé par le site.
 
-## Sécurité
+Sources optimisées dans assets/film-v2/. Les anciennes cinématiques restent
+archivées dans assets/cinematics/ et ne sont plus référencées par la page.
+Les fichiers vidéo originaux ne font pas partie de la publication.
 
-Le prototype ne collecte et ne transmet aucune donnée. Les futures clés d’API devront être stockées côté serveur et jamais ajoutées au dépôt Git.
+### Fonctions de démonstration
+
+- Recherche par référence Louhichi et numéro de conteneur de démonstration.
+- Expédition, documents téléchargeables d'exemple et compte réunis en trois onglets.
+- Références : LOU-26091, LOU-25842, LOU-25117.
+- Vue gestion compacte avec échéances fictives.
+- Devis en quatre étapes avec validation ; aucune transmission ni conservation.
+- Navigation clavier, menu mobile, contrôles tactiles.
+
+## Connexions à terminer
+
+Le suivi réel, l'authentification, le stockage des documents et l'envoi des devis
+nécessitent des services serveur et des accès métier. Les coordonnées professionnelles,
+mentions légales et destinations commerciales doivent être validées avant usage réel.
+Le site public est explicitement une démonstration.
+
+Ne jamais placer de clé API, de données client ou de documents privés dans le dépôt
+public. GitHub Pages n'est pas un backend. Voir docs/integration-plan.md.
+21st.dev reste une finition facultative, non nécessaire au fonctionnement actuel.
+
+## Publication
+
+GitHub Pages publie la branche main à la racine. Le dépôt distant et son historique
+sont conservés ; la publication n'exige pas l'écriture dans le dossier .git local.
