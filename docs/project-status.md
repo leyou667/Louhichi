@@ -1,6 +1,6 @@
 # État du projet Louhichi
 
-Mise à jour : 5 septembre 2026.
+Mise à jour : 6 septembre 2026.
 
 ## Refonte réalisée
 
@@ -12,9 +12,13 @@ Mise à jour : 5 septembre 2026.
 - Sept prises Higgsfield converties en WebP, six retenues ; première prise de grue
   écartée en entier. Le chargement inversé fournit le levage depuis le camion,
   avant une descente horizontale dédiée sur le navire.
-- Cache applicatif borné à trois planches (40,5 Mio de pixels décodés au maximum),
-  auquel s'ajoutent le canvas et les allocations propres au navigateur.
-- Chargement voisin, premier visuel prioritaire, maintien de la dernière image disponible.
+- Moteur v3 : images individuelles WebP, décodage Worker avec repli, transport
+  regroupé en 16 fichiers par profil et cache compressé distinct du cache décodé.
+- Cache mobile standard de 17 images (20,7 Mio), plus deux places de décodage/transfert.
+  Canvas, poster et allocations du navigateur s'ajoutent à ce budget de pixels.
+- Chargement orienté selon le défilement, premier visuel prioritaire, maintien du dernier rendu.
+- Flou précalculé, absence de redimensionnement du canvas lors des seules variations de hauteur.
+- Pause hors écran et reprise sans blocage ; tentatives réseau après échec.
 - Mode léger, réduction des animations, économie de données ; accès direct aux sections.
 - Recherche d'exemples, documents téléchargeables, onglets accessibles, aperçu gestion.
 - Devis quatre étapes validé sans transmission ou stockage de données personnelles.
@@ -27,6 +31,7 @@ Mise à jour : 5 septembre 2026.
 - Retour en arrière au scroll et image inchangée quand le scroll est arrêté.
 - Vérifications visuelles en fenêtres de dimensions mobiles et ordinateur.
 - Ces essais ne remplacent pas des tests matériels Safari iPhone et Android milieu de gamme.
+- Optimisation et mesures détaillées : [rapport de performance](performance-report.md).
 
 ## Publication et accès
 

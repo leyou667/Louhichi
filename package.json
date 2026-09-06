@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node server.mjs",
     "start": "node server.mjs",
-    "check": "node --check app.js && node --check cinema.js && node --check server.mjs",
+    "check": "node --check app.js && node --check cinema.js && node --check cinema-core.js && node --check cinema-loader.js && node --check server.mjs",
     "test": "node scripts/verify.mjs"
   }
 }

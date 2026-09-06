@@ -21,23 +21,41 @@ Palette officielle et monogramme JPG fourni préservés ; icônes vectorielles h
 
 - Un canvas plein écran, au début du site, animé uniquement par la position du scroll.
 - Sept chapitres narratifs et sept prises Higgsfield : cinq verticales, deux horizontales.
-- 96 images exportées par prise, en planches WebP de six images.
+- Sources : 96 images exportées par prise. Le moteur v3 décode des images WebP
+  indépendantes, regroupées en petits fichiers de transport indexés (24 images).
 - Montage : découverte/chargement, camion/port, levage court, dépose corrigée, traversée.
 - La première prise de grue est écartée en entier. Le levage utilise le plan
   de chargement inversé, puis une nouvelle prise assure la dépose horizontale.
-- Versions verticales natives 576 × 1024 ; plans larges 1024 × 576.
+- Sources verticales natives 576 × 1024 ; plans larges 1024 × 576.
+- Rendus mobiles 384 × 832, éco 288 × 624 et ordinateur 960 × 600.
 - Les prises verticales intermédiaires restent intégralement visibles sur ordinateur :
   arrière-plan atmosphérique issu de la même image, sans bandes noires.
-- Préchargement des images voisines ; trois planches décodées au maximum, soit
-  40,5 Mio de pixels de planches (hors canvas, moteur du navigateur et cache réseau).
+- Décodage dans un Worker, repli compatible sans Worker, deux opérations maximum.
+- Préchargement selon le sens et la vitesse du scroll, y compris les plans inversés.
+- Cache mobile de 17 images (20,7 Mio) ; deux places réservées au décodage/transfert.
+  Total pixels borné à moins de 24 Mio mobile / 32 Mio ordinateur, hors canvas,
+  poster, cache compressé (10 Mio maximum) et allocations internes du navigateur.
+- Les effets atmosphériques sont calculés à la conversion, pas pendant le scroll.
+- La hauteur de la barre d’adresse ne redimensionne plus le bitmap du canvas.
 - Premier visuel prioritaire ; conservation du dernier rendu si une image manque.
-- Version statique avec réduction des animations, économie de données ou appareil
-  annonçant au plus 2 Go de mémoire ; bouton de bascule et liens de passage direct.
+- Version statique avec réduction des animations ou économie de données ; bouton
+  de bascule et liens de passage direct. Profil éco pour appareil peu puissant.
 - Aucun élément video, aucune lecture automatique et aucun MP4 chargé par le site.
 
-Sources optimisées dans assets/film-v2/. Les anciennes cinématiques restent
+Médias actifs dans assets/film-v3/. Sources de conversion dans assets/film-v2/.
+Les anciennes cinématiques restent
 archivées dans assets/cinematics/ et ne sont plus référencées par la page.
 Les fichiers vidéo originaux ne font pas partie de la publication.
+
+### Vérification et reconstruction des médias
+
+- `npm test` vérifie les fichiers et le moteur : 1 536 positions, aller-retour,
+  cache borné, reprise après pause, nouvelle tentative réseau, nettoyage des transferts.
+- `scripts/build-film-packs.cjs` reconstruit les profils avec Sharp 0.35.4
+  (dépendance de conversion seulement ; le site n’a aucune dépendance d’exécution).
+- Syntaxe : `node scripts/build-film-packs.cjs assets/film-v2 assets/film-v3`.
+  Sharp doit être accessible par `require('sharp')` ou `LOUHICHI_SHARP_PATH`.
+- Mesures et limites : [rapport de performance](docs/performance-report.md).
 
 ### Fonctions de démonstration
 

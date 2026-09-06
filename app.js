@@ -22,7 +22,12 @@
   $$('a', navigation).forEach(a => a.addEventListener('click', closeMenu));
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu.getAttribute('aria-expanded') === 'true') { closeMenu(); menu.focus(); } });
   document.addEventListener('click', e => { if (!$('[data-header]').contains(e.target)) closeMenu(); });
-  const updateHeader = () => $('[data-header]').classList.toggle('is-scrolled', scrollY > 60);
+  const header = $('[data-header]');
+  let headerScrolled;
+  const updateHeader = () => {
+    const next = scrollY > 60;
+    if (next !== headerScrolled) { headerScrolled = next; header.classList.toggle('is-scrolled', next); }
+  };
   addEventListener('scroll', updateHeader, { passive: true });
   updateHeader();
 
